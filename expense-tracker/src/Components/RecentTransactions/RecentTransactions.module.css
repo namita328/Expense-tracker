@@ -1,0 +1,23 @@
+h2 {
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-bottom: 0;
+  font-weight: 200;
+}
+
+.transactionContainer {
+  width: 738.33px;
+  background-color: #ffffff;
+  height: 300px;
+  left: 32px;
+  margin: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.primaryContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

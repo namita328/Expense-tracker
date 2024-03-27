@@ -1,0 +1,31 @@
+h1 {
+  margin-left: 10px;
+  padding-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.mainContainer {
+  background-color: #3b3b3b;
+  color: white;
+  padding: 5px;
+  padding-top: 5px;
+  height: 100vh;
+}
+.secondContainer {
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  background-color: #9b9b9b;
+  align-items: center;
+  height: 269px;
+  top: 94px;
+  left: 32px;
+  margin: 15px;
+  border-radius: 10px;
+}
+.secondaryContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

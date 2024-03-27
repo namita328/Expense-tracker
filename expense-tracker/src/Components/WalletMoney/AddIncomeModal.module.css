@@ -1,0 +1,59 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  background-color: rgba(192, 192, 192, 0.7);
+  padding: 15px;
+  border-radius: 15px;
+  height: 10vh;
+  width: 30vw;
+}
+.modal h2 {
+  font-size: 15px;
+  color: black;
+  font-weight: 700;
+  margin-top: 0;
+  margin-left: 10px;
+  padding-left: 0;
+}
+
+.addbalance {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+}
+
+.inputContainer input[type="number"] {
+  margin-right: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.inputContainer button {
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color:orange;
+  color: white;
+}
+
+.inputContainer button:hover {
+  background-color: #0056b3;
+}
