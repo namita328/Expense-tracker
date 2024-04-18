@@ -6,7 +6,7 @@ h1 {
 }
 
 .mainContainer {
-  background-color: #3b3b3b;
+  background-color: darkslategray;
   color: white;
   padding: 5px;
   padding-top: 5px;
@@ -16,10 +16,9 @@ h1 {
 }
 .secondContainer {
   display: flex;
-
   justify-content: space-around;
   box-shadow: 0px 4px 4px 0px #00000040;
-  background-color: #9b9b9b;
+  background-color: rgba(0, 0, 0, 0.5);
   align-items: center;
   height: 250px;
   top: 94px;

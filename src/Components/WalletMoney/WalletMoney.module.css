@@ -3,14 +3,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: black;
+  color: white;
   height: 160px;
   border-radius: 10px;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
   width: 350px;
   padding: 10px;
   margin: 15px;
   font-size: 25px;
+  z-index: 1;
 }
 .walletContainer button {
   background-color: forestgreen;

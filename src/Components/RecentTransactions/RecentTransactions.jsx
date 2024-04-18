@@ -25,6 +25,12 @@ const RecentTransactions = ({ expenses }) => {
       setCurrentPage(currentPage + 1);
     }
   };
+  const handleDelete = (id) => {
+    // Remove the expense with the given id from the expenses array
+    const updatedExpenses = expenses.filter((expense) => expense.id !== id);
+    // Update the state with the new array of expenses
+    expenses(updatedExpenses);
+  };
 
   const currentExpenses = paginateExpenses(currentPage, elementsPerPage);
 
@@ -33,7 +39,7 @@ const RecentTransactions = ({ expenses }) => {
       <h2>Recent Transactions</h2>
       <div className={styles.transactionContainer}>
         {currentExpenses.map((expense, index) => (
-          <ExpenseCard key={index} expense={expense} />
+          <ExpenseCard key={index} expense={expense} onDelete={handleDelete} />
         ))}
 
         <div className={styles.pagination}>

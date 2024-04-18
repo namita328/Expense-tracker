@@ -2,7 +2,7 @@ import styles from "./ExpenseCard.module.css";
 import { CiCircleRemove } from "react-icons/ci";
 import { MdModeEdit } from "react-icons/md";
 
-const ExpenseCard = ({ expense }) => {
+const ExpenseCard = ({ expense, onDelete }) => {
   const dateFormat = (date) => {
     if (!(date instanceof Date) || isNaN(date.getTime())) {
       return "Invalid Date";
@@ -29,6 +29,13 @@ const ExpenseCard = ({ expense }) => {
 
     return `${months[month]} ${day}, ${year}`;
   };
+  const handleDelete = () => {
+    onDelete(expense.id);
+  };
+
+  const handleEdit = () => {
+    console.log();
+  };
 
   return (
     <div className={styles.expenseCard}>
@@ -43,10 +50,10 @@ const ExpenseCard = ({ expense }) => {
       <div className={styles.priceAndUpdate}>
         <p className={styles.price}>₹{expense.amount}</p>
 
-        <button className={styles.deleteBtn}>
+        <button className={styles.deleteBtn} onClick={handleDelete}>
           <CiCircleRemove size={25} />
         </button>
-        <button className={styles.editBtn}>
+        <button className={styles.editBtn} onClick={handleEdit}>
           <MdModeEdit size={30} />
         </button>
       </div>
