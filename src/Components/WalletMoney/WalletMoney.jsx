@@ -2,28 +2,45 @@ import React, { useState } from "react";
 import styles from "./WalletMoney.module.css";
 import AddIncomeModal from "../WalletMoney/AddIncomeModal";
 
-const WalletMoney = () => {
-  const [walletBalance, setWalletBalance] = useState(5000);
+const WalletMoney = ({
+  currentBalance,
+  mainBalance,
+  setMainBalance,
+  setCurrentBalance,
+}) => {
   const [showModal, setShowModal] = useState(false);
+  const [newBalance, setNewBalance] = useState("");
 
-  const handleAddIncome = (amount) => {
-    const newBalance = walletBalance + amount;
-    setWalletBalance(newBalance);
-    // You can add localStorage persistence here
+  const openModal = () => {
+    setShowModal(true);
   };
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
+  const closeModal = () => {
+    setShowModal(false);
+    setNewBalance("");
+  };
+
+  const handleAddBalance = () => {
+    const parsedAmount = parseInt(newBalance);
+    if (!isNaN(parsedAmount)) {
+      setCurrentBalance(currentBalance + parsedAmount);
+      setMainBalance(mainBalance + parsedAmount);
+      closeModal();
+    }
   };
 
   return (
     <>
       <div className={styles.walletContainer}>
-        <p>Wallet Money : {walletBalance}</p>
-        <button onClick={toggleModal}>+ Add Income</button>
+        <p>Wallet Money : ₹ {mainBalance}</p>
+        <button onClick={openModal}>+ Add Income</button>
       </div>
       {showModal && (
-        <AddIncomeModal onClose={toggleModal} onAddIncome={handleAddIncome} />
+        <AddIncomeModal
+          onClose={closeModal}
+          handleAddBalance={handleAddBalance}
+          setNewBalance={setNewBalance}
+        />
       )}
     </>
   );

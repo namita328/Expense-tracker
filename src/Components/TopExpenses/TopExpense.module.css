@@ -1,8 +1,60 @@
 .topExpContainer {
-  width: 615px;
+  width: 400px;
   background-color: #ffffff;
-  height: 300px;
-  left: 32px;
-  margin: 15px;
-  border-radius: 15px;
+  height: 328px;
+  left: 28px;
+
+  margin-top: 8px;
+  border-radius: 10px;
+}
+.container h2 {
+  padding-left: 0px;
+}
+.defaultContainer {
+  width: 300px;
+  font-weight: 500;
+  height: 250px;
+  color: black;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.label {
+  flex: 1;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.barFill {
+  height: 20px;
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+.amount {
+  font-size: 14px;
+  margin-left: 10px;
+}
+@media screen and (max-width: 768px) {
+  .topExpContainer {
+    width: 150px;
+    height: 250px;
+    left: 10px;
+    border-radius: 0;
+  }
+  .defaultContainer {
+    width: 130px;
+    height: 100px;
+    left: 5px;
+  }
 }

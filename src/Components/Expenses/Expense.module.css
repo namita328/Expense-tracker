@@ -18,3 +18,15 @@
   border: none;
   padding: 8px 15px;
 }
+@media screen and (max-width: 768px) {
+  .expenseContainer {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    padding: 10px;
+  }
+
+  .expenseContainer button {
+    margin-top: 10px;
+  }
+}

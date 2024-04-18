@@ -4,32 +4,35 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(128, 128, 128, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
+
 .modal {
-  background-color: rgba(192, 192, 192, 0.7);
+  /* background-color: rgba(255, 255, 255, 0.9);  */
+  background-color: white;
   padding: 15px;
   border-radius: 15px;
-  height: 10vh;
-  width: 30vw;
+  height: 12vh;
+  width: 40vw;
 }
 .modal h2 {
-  font-size: 15px;
+  font-size: 20px;
   color: black;
   font-weight: 700;
   margin-top: 0;
-  margin-left: 10px;
-  padding-left: 0;
+  margin-bottom: 8px;
+  margin-left: 20px;
 }
 
 .addbalance {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  margin-left: 10px;
+  /* padding: 10px; */
+  margin-left: 20px;
 }
 
 .inputContainer {
@@ -37,23 +40,26 @@
   align-items: center;
 }
 
-.inputContainer input[type="number"] {
-  margin-right: 10px;
-  padding: 5px;
+.inputContainer input {
+  margin-right: 20px;
+  padding: 10px;
+  margin-left: 0;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   border: none;
+  border-radius: 20px;
+  width: 50%;
 }
 
 .inputContainer button {
-  padding: 5px 10px;
+  padding: 8px 15px;
   margin: 5px;
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  background-color:orange;
+  background-color: orange;
   color: white;
 }
 
 .inputContainer button:hover {
-  background-color: #0056b3;
+  background-color: darkorange;
 }

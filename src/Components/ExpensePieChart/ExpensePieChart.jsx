@@ -1,45 +1,75 @@
-import React from "react";
-import { PieChart, Pie, Cell, Legend } from "recharts";
+import { Cell, Pie, PieChart } from "recharts";
+import styles from "./ExpensePieChart.module.css";
+import { Fragment } from "react";
 
-const data = [
-  { name: "Category 1", value: 400 },
-  { name: "Category 2", value: 300 },
-  { name: "Category 3", value: 300 },
-  { name: "Category 4", value: 200 },
-];
+const COLORS = ["#ff9304", "#a000ff", "#fde006"];
+const RADIAN = Math.PI / 180;
 
-const COLORS = ["#003049", "#55a630", "#087e8b", "#dd2d4a"];
+const renderCustomizedLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+}) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-const ExpensePieChart = () => {
   return (
-    <PieChart width={400} height={400}>
-      <Pie
-        dataKey="value"
-        data={data}
-        cx="50%"
-        cy="50%"
-        outerRadius={80}
-        fill="#8884d8"
-        label
-      >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
-      </Pie>
-      <Legend
-        layout="vertical"
-        align="left"
-        verticalAlign="middle"
-        iconSize={10}
-        iconType="square"
-        payload={data.map((entry, index) => ({
-          value: entry.name,
-          type: "square",
-          id: `color-${index}`,
-          color: COLORS[index % COLORS.length],
-        }))}
-      />
-    </PieChart>
+    <text
+      x={x}
+      y={y}
+      fill="white"
+      textAnchor={x > cx ? "start" : "end"}
+      dominantBaseline="central"
+    >
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
+
+const ExpensePieChart = ({ categoryData }) => {
+  return (
+    <div className={styles.categoryPieChart}>
+      {categoryData.length !== 0 ? (
+        <Fragment>
+          <PieChart width={200} height={200}>
+            <Pie
+              data={categoryData}
+              cx={100}
+              cy={100}
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={90}
+              fill="#8884d8"
+              dataKey="value"
+            >
+              {categoryData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
+            </Pie>
+          </PieChart>
+
+          <div className={styles.labelInfo}>
+            {categoryData.map((entry, index) => (
+              <div key={index} className={styles.labels}>
+                <div className={`${entry.name}Line`}></div>
+                {entry.name}
+              </div>
+            ))}
+          </div>
+        </Fragment>
+      ) : (
+        <p className={styles.noPiechart}>
+          Add Expenses to see <br></br>A Category Pie Chart
+        </p>
+      )}
+    </div>
   );
 };
 

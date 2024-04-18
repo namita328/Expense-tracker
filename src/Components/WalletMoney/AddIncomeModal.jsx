@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import styles from "./AddIncomeModal.module.css";
 
-const AddIncomeModal = ({ onClose, onAddIncome }) => {
+const AddIncomeModal = ({ onClose, handleAddBalance, setNewBalance }) => {
   const [income, setIncome] = useState("");
 
   const handleInputChange = (event) => {
     setIncome(event.target.value);
-  };
-
-  const handleAddIncome = () => {
-    if (income.trim() !== "") {
-      onAddIncome(parseFloat(income));
-      onClose();
-    }
+    setNewBalance(event.target.value);
   };
 
   return (
@@ -27,8 +21,10 @@ const AddIncomeModal = ({ onClose, onAddIncome }) => {
               value={income}
               onChange={handleInputChange}
             />
-            <button onClick={handleAddIncome}>Add Balance</button>
-            <button onClick={onClose}>Cancel</button>
+            <button onClick={handleAddBalance}>Add Balance</button>
+            <button onClick={onClose} style={{ backgroundColor: "#780000" }}>
+              Cancel
+            </button>
           </div>
         </div>
       </div>
